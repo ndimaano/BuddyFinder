@@ -207,6 +207,17 @@ CREATE TABLE friends (
     friendship_id INT PRIMARY KEY,
     user1_id INT,
     user2_id INT,
+    messages_id INT,
     FOREIGN KEY (user1_id) REFERENCES studentTable(studentID),
-    FOREIGN KEY (user2_id) REFERENCES studentTable(studentID)
+    FOREIGN KEY (user2_id) REFERENCES studentTable(studentID),
+    FOREIGN KEY (messages_id) REFERENCES messages(message_id)
+);
+
+-- Chat messages table
+-- For now, just a varchar of the most recent message from each side
+-- Call ChatroomServlet GET and PUT to update
+CREATE TABLE messages (
+    message_id INT PRIMARY KEY,
+    user1_messages VARCHAR(50),
+    user2_messages VARCHAR(50)
 );
