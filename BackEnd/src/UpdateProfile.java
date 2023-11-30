@@ -11,29 +11,36 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @WebServlet("/UpdateProfile")
-public class UpdateProfile extends HttpServlet {
+public class UpdateProfileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+            throws ServletException, IOException {
         // Extract student data
-        int studentId = Integer.parseInt(request.getParameter("studentId"));
+        String email = request.getParameter("email"); // Assuming email is unique for each student
         String name = request.getParameter("name");
-        String email = request.getParameter("email");
         String username = request.getParameter("username");
-        String password = request.getParameter("password"); // Ensure proper password handling
+        String newPassword = request.getParameter("password"); // Ensure proper password handling
 
         try (Connection conn = JDBCConnector.getConnection()) {
             PreparedStatement stmt = conn.prepareStatement(
-                "UPDATE studentTable SET name = ?, email = ?, username = ?, password = ? WHERE studentID = ?");
+                "UPDATE studentTable SET name = ?, username = ?, password = ? WHERE email = ?");
             stmt.setString(1, name);
-            stmt.setString(2, email);
-            stmt.setString(3, username);
-            stmt.setString(4, password);
-            stmt.setInt(5, studentId);
-            stmt.executeUpdate();
+            stmt.setString(2, username);
+            stmt.setString(3, BCrypt.hashpw(newPassword, BCrypt.gensalt())); // Hashing the password
+            stmt.setString(4, email);
+            int rowsAffected = stmt.executeUpdate();
+
+            if(rowsAffected > 0) {
+                response.getWriter().write("Profile updated successfully");
+            } else {
+                response.getWriter().write("Profile update failed");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database error");
         }
+
+        response.setContentType("text/plain");
+        response.setCharacterEncoding("UTF-8");
     }
 }
 
