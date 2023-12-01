@@ -10,6 +10,10 @@ import SwiftUI
 struct ContentView: View {
     @State private var isLoginPresented = false
     @State private var isRegisterPresented = false
+    @State private var showBuddy = false
+    @State private var buddyName = ""
+    @State private var buddyCoordinates = (x: 0.0, y: 0.0)
+
     var body: some View {
         NavigationView {
             VStack {
@@ -38,6 +42,22 @@ struct ContentView: View {
                             .sheet(isPresented: $isRegisterPresented) {
                                 RegisterPage()
                             }
+                            Button(action: {
+                                    // For now, Generate a random buddy. Otherwise, pull one from queue
+                                    buddyName = "User \(Int.random(in: 1...100))"
+                                    buddyCoordinates = (x: Double.random(in: -100...100), y: Double.random(in: -100...100))
+                                    showBuddy = true
+                                }) {
+                                    Text("Find Buddy")
+                                        .padding()
+                                        .foregroundColor(.white)
+                                        .background(Color.orange)
+                                        .cornerRadius(10)
+                                }
+                                if showBuddy {
+                                    Text("Buddy: \(buddyName)")
+                                    Text("Coordinates: (\(buddyCoordinates.x), \(buddyCoordinates.y))")
+                                }
                 Spacer()
             }
             .padding()

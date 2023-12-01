@@ -13,6 +13,8 @@ struct Event: Identifiable, Codable {
 struct FormattedEvent: Codable {
 
     var startTime: String
+    
+    var endTime: String
 
     var day: String
 
@@ -41,6 +43,8 @@ extension Event {
         return FormattedEvent(
 
             startTime: formatter.string(from: startTime),
+            
+            endTime: formatter.string(from: endTime),
 
             day: dayFormatter.string(from: startTime),
 
