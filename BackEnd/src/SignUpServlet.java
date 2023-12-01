@@ -25,7 +25,7 @@ public class SignUpServlet extends HttpServlet {
         String email = request.getParameter("signup-email");
         String password = request.getParameter("signup-password");
 	Class.forName("com.mysql.cj.jdbc.Driver");
-        try (Connection conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
+        try (Connection conn = DriverManager.getConnection(JDBC_URL);
              PreparedStatement stmt = conn.prepareStatement("INSERT INTO users (username, email, password) VALUES (?, ?, ?)")) {
             stmt.setString(1, username);
             stmt.setString(2, email);
