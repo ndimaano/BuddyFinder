@@ -1,5 +1,7 @@
+CREATE database BuddyFinder;
+
 -- Student Table
-CREATE TABLE studentTable (
+CREATE TABLE BuddyFinder.studentTable (
     studentID INT UNSIGNED PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
@@ -8,7 +10,7 @@ CREATE TABLE studentTable (
 );
 
 -- Monday Table
-CREATE TABLE mondayTable (
+CREATE TABLE BuddyFinder.mondayTable (
     studentID INT UNSIGNED PRIMARY KEY,
     isAvailable_0700 TINYINT DEFAULT 0,
     isAvailable_0730 TINYINT DEFAULT 0,
@@ -47,7 +49,7 @@ CREATE TABLE mondayTable (
 );
 
 -- Tuesday Table
-CREATE TABLE tuesdayTable (
+CREATE TABLE BuddyFinder.tuesdayTable (
     studentID INT UNSIGNED PRIMARY KEY,
     isAvailable_0700 TINYINT DEFAULT 0,
     isAvailable_0730 TINYINT DEFAULT 0,
@@ -86,7 +88,7 @@ CREATE TABLE tuesdayTable (
 );
 
 -- Wednesday Table
-CREATE TABLE wednesdayTable (
+CREATE TABLE BuddyFinder.wednesdayTable (
     studentID INT UNSIGNED PRIMARY KEY,
     isAvailable_0700 TINYINT DEFAULT 0,
     isAvailable_0730 TINYINT DEFAULT 0,
@@ -125,7 +127,7 @@ CREATE TABLE wednesdayTable (
 );
 
 -- Thursday Table
-CREATE TABLE thursdayTable (
+CREATE TABLE BuddyFinder.thursdayTable (
     studentID INT UNSIGNED PRIMARY KEY,
     isAvailable_0700 TINYINT DEFAULT 0,
     isAvailable_0730 TINYINT DEFAULT 0,
@@ -164,7 +166,7 @@ CREATE TABLE thursdayTable (
 );
 
 -- Friday Table
-CREATE TABLE fridayTable (
+CREATE TABLE BuddyFinder.fridayTable (
     studentID INT UNSIGNED PRIMARY KEY,
     isAvailable_0700 TINYINT DEFAULT 0,
     isAvailable_0730 TINYINT DEFAULT 0,
@@ -203,21 +205,22 @@ CREATE TABLE fridayTable (
 );
 
 -- Friends Table
-CREATE TABLE friends (
-    friendship_id INT PRIMARY KEY,
-    user1_id INT,
-    user2_id INT,
-    messages_id INT,
-    FOREIGN KEY (user1_id) REFERENCES studentTable(studentID),
-    FOREIGN KEY (user2_id) REFERENCES studentTable(studentID),
-    FOREIGN KEY (messages_id) REFERENCES messages(message_id)
-);
+-- CREATE TABLE friends (
+--     friendship_id INT PRIMARY KEY,
+--     user1_id INT,
+--     user2_id INT,
+--     messages_id INT,
+--     FOREIGN KEY (user1_id) REFERENCES studentTable(studentID),
+--     FOREIGN KEY (user2_id) REFERENCES studentTable(studentID),
+--     FOREIGN KEY (messages_id) REFERENCES messages(message_id)
+-- );
 
 -- Chat messages table
 -- For now, just a varchar of the most recent message from each side
 -- Call ChatroomServlet GET and PUT to update
-CREATE TABLE messages (
-    message_id INT PRIMARY KEY,
-    user1_messages VARCHAR(50),
-    user2_messages VARCHAR(50)
-);
+
+-- CREATE TABLE messages (
+--     message_id INT PRIMARY KEY,
+--     user1_messages VARCHAR(50),
+--     user2_messages VARCHAR(50)
+-- );
