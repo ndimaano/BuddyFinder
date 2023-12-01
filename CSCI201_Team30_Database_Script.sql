@@ -2,225 +2,40 @@ CREATE database BuddyFinder;
 
 -- Student Table
 CREATE TABLE BuddyFinder.studentTable (
-    studentID INT UNSIGNED PRIMARY KEY,
+    username VARCHAR(50) NOT NULL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    username VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL
 );
 
--- Monday Table
-CREATE TABLE BuddyFinder.mondayTable (
-    studentID INT UNSIGNED PRIMARY KEY,
-    isAvailable_0700 TINYINT DEFAULT 0,
-    isAvailable_0730 TINYINT DEFAULT 0,
-    isAvailable_0800 TINYINT DEFAULT 0,
-    isAvailable_0830 TINYINT DEFAULT 0,
-    isAvailable_0900 TINYINT DEFAULT 0,
-    isAvailable_0930 TINYINT DEFAULT 0,
-    isAvailable_1000 TINYINT DEFAULT 0,
-    isAvailable_1030 TINYINT DEFAULT 0,
-    isAvailable_1100 TINYINT DEFAULT 0,
-    isAvailable_1130 TINYINT DEFAULT 0,
-    isAvailable_1200 TINYINT DEFAULT 0,
-    isAvailable_1230 TINYINT DEFAULT 0,
-    isAvailable_1300 TINYINT DEFAULT 0,
-    isAvailable_1330 TINYINT DEFAULT 0,
-    isAvailable_1400 TINYINT DEFAULT 0,
-    isAvailable_1430 TINYINT DEFAULT 0,
-    isAvailable_1500 TINYINT DEFAULT 0,
-    isAvailable_1530 TINYINT DEFAULT 0,
-    isAvailable_1600 TINYINT DEFAULT 0,
-    isAvailable_1630 TINYINT DEFAULT 0,
-    isAvailable_1700 TINYINT DEFAULT 0,
-    isAvailable_1730 TINYINT DEFAULT 0,
-    isAvailable_1800 TINYINT DEFAULT 0,
-    isAvailable_1830 TINYINT DEFAULT 0,
-    isAvailable_1900 TINYINT DEFAULT 0,
-    isAvailable_1930 TINYINT DEFAULT 0,
-    isAvailable_2000 TINYINT DEFAULT 0,
-    isAvailable_2030 TINYINT DEFAULT 0,
-    isAvailable_2100 TINYINT DEFAULT 0,
-    isAvailable_2130 TINYINT DEFAULT 0,
-    isAvailable_2200 TINYINT DEFAULT 0,
-    isAvailable_2230 TINYINT DEFAULT 0,
-    isAvailable_2300 TINYINT DEFAULT 0,
-    FOREIGN KEY (studentID) REFERENCES studentTable(studentID)
-);
-
--- Tuesday Table
-CREATE TABLE BuddyFinder.tuesdayTable (
-    studentID INT UNSIGNED PRIMARY KEY,
-    isAvailable_0700 TINYINT DEFAULT 0,
-    isAvailable_0730 TINYINT DEFAULT 0,
-    isAvailable_0800 TINYINT DEFAULT 0,
-    isAvailable_0830 TINYINT DEFAULT 0,
-    isAvailable_0900 TINYINT DEFAULT 0,
-    isAvailable_0930 TINYINT DEFAULT 0,
-    isAvailable_1000 TINYINT DEFAULT 0,
-    isAvailable_1030 TINYINT DEFAULT 0,
-    isAvailable_1100 TINYINT DEFAULT 0,
-    isAvailable_1130 TINYINT DEFAULT 0,
-    isAvailable_1200 TINYINT DEFAULT 0,
-    isAvailable_1230 TINYINT DEFAULT 0,
-    isAvailable_1300 TINYINT DEFAULT 0,
-    isAvailable_1330 TINYINT DEFAULT 0,
-    isAvailable_1400 TINYINT DEFAULT 0,
-    isAvailable_1430 TINYINT DEFAULT 0,
-    isAvailable_1500 TINYINT DEFAULT 0,
-    isAvailable_1530 TINYINT DEFAULT 0,
-    isAvailable_1600 TINYINT DEFAULT 0,
-    isAvailable_1630 TINYINT DEFAULT 0,
-    isAvailable_1700 TINYINT DEFAULT 0,
-    isAvailable_1730 TINYINT DEFAULT 0,
-    isAvailable_1800 TINYINT DEFAULT 0,
-    isAvailable_1830 TINYINT DEFAULT 0,
-    isAvailable_1900 TINYINT DEFAULT 0,
-    isAvailable_1930 TINYINT DEFAULT 0,
-    isAvailable_2000 TINYINT DEFAULT 0,
-    isAvailable_2030 TINYINT DEFAULT 0,
-    isAvailable_2100 TINYINT DEFAULT 0,
-    isAvailable_2130 TINYINT DEFAULT 0,
-    isAvailable_2200 TINYINT DEFAULT 0,
-    isAvailable_2230 TINYINT DEFAULT 0,
-    isAvailable_2300 TINYINT DEFAULT 0,
-    FOREIGN KEY (studentID) REFERENCES studentTable(studentID)
-);
-
--- Wednesday Table
-CREATE TABLE BuddyFinder.wednesdayTable (
-    studentID INT UNSIGNED PRIMARY KEY,
-    isAvailable_0700 TINYINT DEFAULT 0,
-    isAvailable_0730 TINYINT DEFAULT 0,
-    isAvailable_0800 TINYINT DEFAULT 0,
-    isAvailable_0830 TINYINT DEFAULT 0,
-    isAvailable_0900 TINYINT DEFAULT 0,
-    isAvailable_0930 TINYINT DEFAULT 0,
-    isAvailable_1000 TINYINT DEFAULT 0,
-    isAvailable_1030 TINYINT DEFAULT 0,
-    isAvailable_1100 TINYINT DEFAULT 0,
-    isAvailable_1130 TINYINT DEFAULT 0,
-    isAvailable_1200 TINYINT DEFAULT 0,
-    isAvailable_1230 TINYINT DEFAULT 0,
-    isAvailable_1300 TINYINT DEFAULT 0,
-    isAvailable_1330 TINYINT DEFAULT 0,
-    isAvailable_1400 TINYINT DEFAULT 0,
-    isAvailable_1430 TINYINT DEFAULT 0,
-    isAvailable_1500 TINYINT DEFAULT 0,
-    isAvailable_1530 TINYINT DEFAULT 0,
-    isAvailable_1600 TINYINT DEFAULT 0,
-    isAvailable_1630 TINYINT DEFAULT 0,
-    isAvailable_1700 TINYINT DEFAULT 0,
-    isAvailable_1730 TINYINT DEFAULT 0,
-    isAvailable_1800 TINYINT DEFAULT 0,
-    isAvailable_1830 TINYINT DEFAULT 0,
-    isAvailable_1900 TINYINT DEFAULT 0,
-    isAvailable_1930 TINYINT DEFAULT 0,
-    isAvailable_2000 TINYINT DEFAULT 0,
-    isAvailable_2030 TINYINT DEFAULT 0,
-    isAvailable_2100 TINYINT DEFAULT 0,
-    isAvailable_2130 TINYINT DEFAULT 0,
-    isAvailable_2200 TINYINT DEFAULT 0,
-    isAvailable_2230 TINYINT DEFAULT 0,
-    isAvailable_2300 TINYINT DEFAULT 0,
-    FOREIGN KEY (studentID) REFERENCES studentTable(studentID)
-);
-
--- Thursday Table
-CREATE TABLE BuddyFinder.thursdayTable (
-    studentID INT UNSIGNED PRIMARY KEY,
-    isAvailable_0700 TINYINT DEFAULT 0,
-    isAvailable_0730 TINYINT DEFAULT 0,
-    isAvailable_0800 TINYINT DEFAULT 0,
-    isAvailable_0830 TINYINT DEFAULT 0,
-    isAvailable_0900 TINYINT DEFAULT 0,
-    isAvailable_0930 TINYINT DEFAULT 0,
-    isAvailable_1000 TINYINT DEFAULT 0,
-    isAvailable_1030 TINYINT DEFAULT 0,
-    isAvailable_1100 TINYINT DEFAULT 0,
-    isAvailable_1130 TINYINT DEFAULT 0,
-    isAvailable_1200 TINYINT DEFAULT 0,
-    isAvailable_1230 TINYINT DEFAULT 0,
-    isAvailable_1300 TINYINT DEFAULT 0,
-    isAvailable_1330 TINYINT DEFAULT 0,
-    isAvailable_1400 TINYINT DEFAULT 0,
-    isAvailable_1430 TINYINT DEFAULT 0,
-    isAvailable_1500 TINYINT DEFAULT 0,
-    isAvailable_1530 TINYINT DEFAULT 0,
-    isAvailable_1600 TINYINT DEFAULT 0,
-    isAvailable_1630 TINYINT DEFAULT 0,
-    isAvailable_1700 TINYINT DEFAULT 0,
-    isAvailable_1730 TINYINT DEFAULT 0,
-    isAvailable_1800 TINYINT DEFAULT 0,
-    isAvailable_1830 TINYINT DEFAULT 0,
-    isAvailable_1900 TINYINT DEFAULT 0,
-    isAvailable_1930 TINYINT DEFAULT 0,
-    isAvailable_2000 TINYINT DEFAULT 0,
-    isAvailable_2030 TINYINT DEFAULT 0,
-    isAvailable_2100 TINYINT DEFAULT 0,
-    isAvailable_2130 TINYINT DEFAULT 0,
-    isAvailable_2200 TINYINT DEFAULT 0,
-    isAvailable_2230 TINYINT DEFAULT 0,
-    isAvailable_2300 TINYINT DEFAULT 0,
-    FOREIGN KEY (studentID) REFERENCES studentTable(studentID)
-);
-
--- Friday Table
-CREATE TABLE BuddyFinder.fridayTable (
-    studentID INT UNSIGNED PRIMARY KEY,
-    isAvailable_0700 TINYINT DEFAULT 0,
-    isAvailable_0730 TINYINT DEFAULT 0,
-    isAvailable_0800 TINYINT DEFAULT 0,
-    isAvailable_0830 TINYINT DEFAULT 0,
-    isAvailable_0900 TINYINT DEFAULT 0,
-    isAvailable_0930 TINYINT DEFAULT 0,
-    isAvailable_1000 TINYINT DEFAULT 0,
-    isAvailable_1030 TINYINT DEFAULT 0,
-    isAvailable_1100 TINYINT DEFAULT 0,
-    isAvailable_1130 TINYINT DEFAULT 0,
-    isAvailable_1200 TINYINT DEFAULT 0,
-    isAvailable_1230 TINYINT DEFAULT 0,
-    isAvailable_1300 TINYINT DEFAULT 0,
-    isAvailable_1330 TINYINT DEFAULT 0,
-    isAvailable_1400 TINYINT DEFAULT 0,
-    isAvailable_1430 TINYINT DEFAULT 0,
-    isAvailable_1500 TINYINT DEFAULT 0,
-    isAvailable_1530 TINYINT DEFAULT 0,
-    isAvailable_1600 TINYINT DEFAULT 0,
-    isAvailable_1630 TINYINT DEFAULT 0,
-    isAvailable_1700 TINYINT DEFAULT 0,
-    isAvailable_1730 TINYINT DEFAULT 0,
-    isAvailable_1800 TINYINT DEFAULT 0,
-    isAvailable_1830 TINYINT DEFAULT 0,
-    isAvailable_1900 TINYINT DEFAULT 0,
-    isAvailable_1930 TINYINT DEFAULT 0,
-    isAvailable_2000 TINYINT DEFAULT 0,
-    isAvailable_2030 TINYINT DEFAULT 0,
-    isAvailable_2100 TINYINT DEFAULT 0,
-    isAvailable_2130 TINYINT DEFAULT 0,
-    isAvailable_2200 TINYINT DEFAULT 0,
-    isAvailable_2230 TINYINT DEFAULT 0,
-    isAvailable_2300 TINYINT DEFAULT 0,
-    FOREIGN KEY (studentID) REFERENCES studentTable(studentID)
+CREATE TABLE BuddyFinder.scheduleTable (
+    eventID INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50),
+    day_of_week VARCHAR(10),
+    startTime TIME,
+    endTime TIME,
+    eventName VARCHAR(255),
+    PRIMARY KEY (eventID),
+    FOREIGN KEY (username) REFERENCES studentTable(username)
 );
 
 -- Friends Table
--- CREATE TABLE friends (
---     friendship_id INT PRIMARY KEY,
---     user1_id INT,
---     user2_id INT,
---     messages_id INT,
---     FOREIGN KEY (user1_id) REFERENCES studentTable(studentID),
---     FOREIGN KEY (user2_id) REFERENCES studentTable(studentID),
---     FOREIGN KEY (messages_id) REFERENCES messages(message_id)
--- );
+CREATE TABLE BuddyFinder.friends (
+    friendship_id INT PRIMARY KEY,
+    username VARCHAR(50),
+    username2 VARCHAR(50),
+    messages_id INT,
+    FOREIGN KEY (username) REFERENCES studentTable(username),
+    FOREIGN KEY (username2) REFERENCES studentTable(username),
+    FOREIGN KEY (messages_id) REFERENCES messages(messages_id)
+);
 
 -- Chat messages table
 -- For now, just a varchar of the most recent message from each side
 -- Call ChatroomServlet GET and PUT to update
 
--- CREATE TABLE messages (
---     message_id INT PRIMARY KEY,
---     user1_messages VARCHAR(50),
---     user2_messages VARCHAR(50)
--- );
+CREATE TABLE BuddyFinder.messages (
+    messages_id INT PRIMARY KEY,
+    user1_messages VARCHAR(50),
+    user2_messages VARCHAR(50)
+);
