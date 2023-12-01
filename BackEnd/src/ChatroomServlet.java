@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ChatroomServlet")
 public class ChatroomServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final String JDBC_URL = "jdbc:mysql://localhost/buddyFinder?user=root&password=root";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -40,7 +41,8 @@ public class ChatroomServlet extends HttpServlet {
 		String userId = request.getParameter("userId");
 		try {
 			// CHANGE THIS LINE for both get and post
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/factory?user=root&password=root");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection(JDBC_URL);
 			ps = conn.prepareStatement("SELECT * FROM studentTable s, friends f, messages m WHERE f.messages_id = m.message_id AND s.studentId = " + userId + ";");
 			rs = ps.executeQuery();
 			// idk if this while is necessary
@@ -92,7 +94,8 @@ public class ChatroomServlet extends HttpServlet {
 		String messageId = null;
 		try {
 			// CHANGE THIS LINE
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/factory?user=root&password=root");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection(JDBC_URL);
 			ps = conn.prepareStatement("SELECT * FROM studentTable s, friends f, messages m WHERE f.messages_id = m.message_id AND s.studentId = " + userId + ";");
 			getResult = ps.executeQuery();
 			user1Message = getResult.getString("user1_messages");
