@@ -15,9 +15,7 @@ import com.google.gson.JsonObject;
 @WebServlet("/SignUp")
 public class SignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/your-database";
-    private static final String JDBC_USER = "root";
-    private static final String JDBC_PASSWORD = "password";
+	private static final String JDBC_URL = "jdbc:mysql://localhost/buddyFinder?user=root&password=root";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -26,7 +24,7 @@ public class SignUpServlet extends HttpServlet {
         String username = request.getParameter("signup-username");
         String email = request.getParameter("signup-email");
         String password = request.getParameter("signup-password");
-
+	Class.forName("com.mysql.cj.jdbc.Driver");
         try (Connection conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
              PreparedStatement stmt = conn.prepareStatement("INSERT INTO users (username, email, password) VALUES (?, ?, ?)")) {
             stmt.setString(1, username);
